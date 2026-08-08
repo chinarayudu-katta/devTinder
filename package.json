@@ -17,5 +17,10 @@
   "dependencies": {
     "express": "^5.2.1",
     "mongoose": "^9.8.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "eslint": "^9.39.5",
+    "globals": "^17.9.0"
   }
 }
