@@ -12,7 +12,6 @@ authRouter.post("/signup", async (req, res)=> {
     const {firstName, lastName, emailId, password} = req.body;
     // Encrypt the password
     const passwordHash = await bcrypt.hash(password, 10);
-    console.log("Password hash: ", passwordHash);    
      const user = new User({
             firstName,
             lastName,
@@ -38,7 +37,7 @@ authRouter.post("/login", async (req, res)=> {
         const token = await user.getJWT();     
 
         res.cookie("token", token, {expires: new Date(Date.now() + 1 * 3600000)});
-        res.send("Login successfully!!!")
+        res.send(user)
        } else {
         throw new Error("Invalid credentials")
        }
